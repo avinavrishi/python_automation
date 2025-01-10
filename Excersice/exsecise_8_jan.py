@@ -225,10 +225,10 @@ def count_status(registration):
     for i in registration:
         if i[1]=="Paid":
             paid_count+=1
-        elif i[1]=="Unpaid":
+        elif i[1]=="Not Paid":
             unpaid_count+=1    
-    print(f"Paid Count is : {paid_count}")
-    print(f"Unpaid Count is : {unpaid_count}")
+    return paid_count,unpaid_count
+    
 
 registrations = [("Alice", "Paid"), ("Bob", "Not Paid"), ("Charlie", "Paid")]
 paid_list=[]
@@ -239,6 +239,7 @@ print("#########################################################")
 print()
 paid_name=input("Enter the name who paid the fees : ")
 mark_paid(paid_name)
-count_status(registrations)
-
+paid_c,unpaid_c=count_status(registrations)
+print(f"Paid Count is : {paid_c}")
+print(f"Unpaid Count is : {unpaid_c}")
 print()
