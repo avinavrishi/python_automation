@@ -197,6 +197,7 @@ A function count_status() that returns a dictionary with the count of "Paid"
 and "Not Paid" participants.'''
 
 def get_paid_registrations(parti_list):
+    paid_list = list()
     for i in range(0, len(parti_list)):
         if (parti_list[i])[1]=="Paid":
             paid_list.append((parti_list[i])[0])        
@@ -219,6 +220,19 @@ def mark_paid(name):
     if is_paid==False:   
         print("Already Paid")
 
+def mark_paid_2(name, my_list):
+
+    for participant in my_list:
+        if participant[0] == name and participant[1] == "Not Paid":
+            ind = my_list.index(participant)
+            participant = list(participant)
+            participant[1] = "Paid"
+            participant = tuple(participant)
+            my_list[ind] = participant
+            return my_list
+
+    return "Participant not found"
+
 def count_status(registration):
     paid_count=0
     unpaid_count=0
@@ -231,15 +245,15 @@ def count_status(registration):
     
 
 registrations = [("Alice", "Paid"), ("Bob", "Not Paid"), ("Charlie", "Paid")]
-paid_list=[]
-paid_list=get_paid_registrations(registrations)
-print(f"The list of all paid participants is {paid_list}")
-print()
-print("#########################################################")
-print()
-paid_name=input("Enter the name who paid the fees : ")
-mark_paid(paid_name)
-paid_c,unpaid_c=count_status(registrations)
-print(f"Paid Count is : {paid_c}")
-print(f"Unpaid Count is : {unpaid_c}")
-print()
+# paid_list=[]
+# paid_list=get_paid_registrations(registrations)
+# print(f"The list of all paid participants is {paid_list}")
+# print()
+# print("#########################################################")
+# print()
+# paid_name=input("Enter the name who paid the fees : ")
+# mark_paid(paid_name)
+# paid_c,unpaid_c=count_status(registrations)
+# print(f"Paid Count is : {paid_c}")
+# print(f"Unpaid Count is : {unpaid_c}")
+# print()
