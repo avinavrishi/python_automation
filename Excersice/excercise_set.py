@@ -121,10 +121,25 @@ Returns a list of places visited by more than one tourist.'''
 
 def all_places_visited(tourist):
     set_1=set()
-    for i in tourist:
-        set_1.add(tuple(i[1]))
+    for tuples in tourist:
+        for i in tuples[1]:
+            set_1.add(i)
     return set_1
 
+def list_of_places_visited_twice(tourists):
+
+    places_visited = []
+    unique_places = all_places_visited(tourists)   
+
+    for places in unique_places:
+        count = 0
+        for data in tourists:
+             if places in data[1]:
+                count+=1
+        if count > 1:
+            places_visited.append(places)
+    
+    return places_visited
 
 tourists = [("Alice", ["Beach", "Museum", "Park"]),
             ("Bob", ["Park", "Beach"]),
@@ -132,3 +147,5 @@ tourists = [("Alice", ["Beach", "Museum", "Park"]),
 
 places_visited=all_places_visited(tourists)            
 print(places_visited)
+
+print(list_of_places_visited_twice(tourists))
