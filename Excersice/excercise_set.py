@@ -52,29 +52,32 @@ Returns the set of customers who purchased items from all three categories.
 Returns the set of customers who purchased items from exactly two categories.
 Returns the set of customers who purchased items from only one category.'''
 
-# def items_from_all_three_categories(set_1,set_2,set_3):
-#     set_4=set_1.intersection(set_2,set_3)
-#     return set_4
+def items_from_all_three_categories(set_1,set_2,set_3):
+    set_4=set_1.intersection(set_2,set_3)
+    return set_4
 
-# # def items_from_exactly_two_categories(set_1,set_2,set_3):
+def items_from_exactly_two_categories(electronics, grocery, clothing):
+    three_category = items_from_all_three_categories(electronics, grocery, clothing)
+    two_categories = ((electronics & grocery) - three_category) | ((electronics & clothing) - three_category) | ((grocery & clothing) - three_category)
+    return two_categories
      
-     
+def items_from_only_one_category(set_1,set_2,set_3):
+     set_4=set_1.symmetric_difference(set_2)
+     set_5=set_4.symmetric_difference(set_3)
+     return set_5
 
-# def items_from_only_one_category(set_1,set_2,set_3):
-#      set_4=set_1.symmetric_difference(set_2)
-#      set_5=set_4.symmetric_difference(set_3)
-#      return set_5
+electronics = {"Alice", "Bob", "Charlie"}
+groceries = {"Bob", "Charlie", "David"}
+clothing = {"Alice", "Eve"}
 
-# electronics = {"Alice", "Bob", "Charlie"}
-# groceries = {"Bob", "Charlie", "David"}
-# clothing = {"Alice", "Eve","David"}
-
-# res_1=items_from_all_three_categories(electronics,groceries,clothing)
-# print(res_1)
-# # res_2=items_from_exactly_two_categories(electronics,groceries,clothing)
-# # print(res_2)
-# res_3=items_from_only_one_category(electronics,groceries,clothing)
-# print(res_3)
+res_1=items_from_all_three_categories(electronics,groceries,clothing)
+print(res_1)
+print("=====================")
+res_2=items_from_exactly_two_categories(electronics,groceries,clothing)
+print(res_2)
+print("=====================")
+res_3=items_from_only_one_category(electronics,groceries,clothing)
+print(res_3)
 
 '''3. Shopping List and Inventory
 A store's inventory is stored as a set:
@@ -119,16 +122,33 @@ Write a function that:
 Returns a set of all unique places visited.
 Returns a list of places visited by more than one tourist.'''
 
-def all_places_visited(tourist):
-    set_1=set()
-    for i in tourist:
-        set_1.add(tuple(i[1]))
-    return set_1
+# def all_places_visited(tourist):
+#     set_1=set()
+#     for tuples in tourist:
+#         for i in tuples[1]:
+#             set_1.add(i)
+#     return set_1
 
+# def list_of_places_visited_twice(tourists):
 
-tourists = [("Alice", ["Beach", "Museum", "Park"]),
-            ("Bob", ["Park", "Beach"]),
-            ("Charlie", ["Museum", "Beach"])]
+#     places_visited = []
+#     unique_places = all_places_visited(tourists)   
 
-places_visited=all_places_visited(tourists)            
-print(places_visited)
+#     for places in unique_places:
+#         count = 0
+#         for data in tourists:
+#              if places in data[1]:
+#                 count+=1
+#         if count > 1:
+#             places_visited.append(places)
+    
+#     return places_visited
+
+# tourists = [("Alice", ["Beach", "Museum", "Park"]),
+#             ("Bob", ["Park", "Beach"]),
+#             ("Charlie", ["Museum", "Beach"])]
+
+# places_visited=all_places_visited(tourists)            
+# print(places_visited)
+
+# print(list_of_places_visited_twice(tourists))
