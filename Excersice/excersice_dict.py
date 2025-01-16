@@ -14,9 +14,20 @@ Adds a new book to the inventory with its stock.
 Returns the title of the book with the highest stock.'''
 
 # def stock_after_sale(inventory,book,count):
-#     for data in inventory:
-#         if data==book:
-#             inventory.update({book:inventory[book]-count})
+#     # for data in inventory:
+#     #     if data==book:
+#     #         inventory.update({book:inventory[book]-count})
+
+#     Updated algorithm
+#     data = inventory.get(book, False)
+#     if data is False:
+#         return 0
+#     elif count > data:
+#         return 1
+
+#     if data:
+#         inventory[book] = data - count
+
 #     return inventory
 
 # def add_new_book(inventory,book,count):
@@ -25,20 +36,32 @@ Returns the title of the book with the highest stock.'''
 
 # def book_with_the_highest_stock(inventory):
 #     my_values = inventory.values()
+#     highest_value = max(my_values)
 #     # return max(my_values)
+#     l1 = list()
 #     for i, value in inventory.items():
-#         if value==max(my_values):
-#             return i
+#         if value==highest_value:
+#             l1.append(i)
+    
+#     return l1
+
+    
 
 # inventory = {
 #     "The Great Gatsby": 10,
-#     "1984": 5,
+#     "1984": 10,
 #     "To Kill a Mockingbird": 8
 # }
 # book=input("Which book do you want to purchase : \n")
 # count=int(input("How many books do you want to purchase : \n"))
 # res=stock_after_sale(inventory,book,count)
-# print(res)
+
+# if res == 1:
+#     print("Book is not available in stock")
+# elif res == 0:
+#     print("Book is not available")
+# else:
+#     print(res)
 
 # book=input("Which book do you want to add : \n")
 # count=int(input("How many books do you want to add : \n"))
@@ -68,20 +91,31 @@ Returns the name of the student with the highest average score.'''
 #             avg=sum(value)/len(value)
 #     return avg
 
-# def add_new_score_grades(grades,name,marks):
-#     grades.update({name:marks})
-#     return grades
+# # def add_new_score_grades(grades,name,marks):
+# #     grades.update({name:marks})
+# #     return grades
 
 # def student_highest_average_score(grades):
 #     avg_list={}
+
+#     # Update Algorithm
 #     for i,value in grades.items():
 #             avg=sum(value)/len(value)
-#             avg_list.update({i: avg})
+#             if len(avg_list) > 0:
+#                 item = avg_list.popitem()
+#                 if item[1] < avg:
+#                     avg_list.update({i: avg})
+#                 else:
+#                     avg_list.update({item[0]: item[1]})
+#             else:
+#                 avg_list.update({i: avg})
 
-#     my_values = avg_list.values()
-#     for i, value in avg_list.items():
-#         if value==max(my_values):
-#             return i
+#     # my_values = avg_list.values()
+#     # for i, value in avg_list.items():
+#     #     if value==max(my_values):
+#     #         return i
+
+#     return avg_list
 
 
 # grades = {
@@ -126,9 +160,7 @@ Adds a new employee to the records.'''
 #     return employee        
             
 # def new_employee_records(employees,emp_id,emp_name,emp_dept,emp_salary):
-#     emp_detail={}
-#     emp_detail.update({"name": emp_name, "department": emp_dept, "salary": emp_salary})
-#     employees.update({emp_id:emp_detail})
+#     employees.update({emp_id:{"name": emp_name, "department": emp_dept, "salary": emp_salary}})
 #     return employees
 
 
@@ -186,10 +218,16 @@ Finds the course with the maximum number of students.'''
 #     return course_list
 
 # def add_student_to_specific_course(courses,stud_name,course_name):
-#     new_dict_courses=courses.copy()
-#     for i,value in new_dict_courses.items():
-#         if i==course_name:
-#            courses.update({"students":value["students"].append(stud_name)})
+#     # new_dict_courses=courses.copy()
+#     # for i,value in new_dict_courses.items():
+#     #     if i==course_name:
+#     #        courses.update({"students":value["students"].append(stud_name)})
+
+#     # Updated Algorithm
+#     for key, value in courses.items():
+#         if key == course_name:
+#             value["students"].append(stud_name)
+
 #     return courses
     
 # def course_with_maximum_number_students(courses):
@@ -200,7 +238,7 @@ Finds the course with the maximum number of students.'''
 #         # print(len(value["students"]))
 #     print(new_dict)    
 
-# # courses = {
+# courses = {
 #     "Math101": {
 #         "professor": "Dr. Smith",
 #         "students": ["Alice", "Bob", "Charlie"]
@@ -366,57 +404,57 @@ Write a function that:
 - If there's a tie, return all names in a set.'''
 
 
-def packages_of_popular_destination(popular_destination,package):
-    my_list=[]
-    for i in popular_destination:
-        for j in package:
-            if i==j[0]:
-                my_list.append(j)
-    return my_list
+# def packages_of_popular_destination(popular_destination,package):
+#     my_list=[]
+#     for i in popular_destination:
+#         for j in package:
+#             if i==j[0]:
+#                 my_list.append(j)
+#     return my_list
 
-def add_booking(customers,cust_id,dest_set):
-    for i,value in customers.items():
-        if i==cust_id:
-            value.update({"booked_packages":(dest_set)})
-        else:
-            return "Not a valid customer"    
-    return customers
+# def add_booking(customers,cust_id,dest_set):
+#     for i,value in customers.items():
+#         if i==cust_id:
+#             value.update({"booked_packages":(dest_set)})
+#         else:
+#             return "Not a valid customer"    
+#     return customers
 
-def calculate_total_revenue(customers):
-    total_rev=0
-    for i,value in customers.items():
-        for j in value["booked_packages"]:
-            total_rev=total_rev+j[1]
-    return total_rev        
+# def calculate_total_revenue(customers):
+#     total_rev=0
+#     for i,value in customers.items():
+#         for j in value["booked_packages"]:
+#             total_rev=total_rev+j[1]
+#     return total_rev        
 
 
-customers = {
-    "C001": {
-        "name": "Alice",
-        "booked_packages": [("Paris", 1500), ("London", 1800)],
-        "preferences": {"sightseeing", "shopping"}
-    },
-    "C002": {
-        "name": "Bob",
-        "booked_packages": [("Tokyo", 2000)],
-        "preferences": {"adventure", "nature"}
-    },
-    "C003": {
-        "name": "Charlie",
-        "booked_packages": [],
-        "preferences": {"shopping", "luxury"}
-    }
-}
+# customers = {
+#     "C001": {
+#         "name": "Alice",
+#         "booked_packages": [("Paris", 1500), ("London", 1800)],
+#         "preferences": {"sightseeing", "shopping"}
+#     },
+#     "C002": {
+#         "name": "Bob",
+#         "booked_packages": [("Tokyo", 2000)],
+#         "preferences": {"adventure", "nature"}
+#     },
+#     "C003": {
+#         "name": "Charlie",
+#         "booked_packages": [],
+#         "preferences": {"shopping", "luxury"}
+#     }
+# }
 
-popular_destinations = {"Paris", "New York", "Tokyo"}
+# popular_destinations = {"Paris", "New York", "Tokyo"}
 
-packages = [
-    ("Paris", 1500),
-    ("New York", 1200),
-    ("Tokyo", 2000),
-    ("London", 1800),
-]
-print()
+# packages = [
+#     ("Paris", 1500),
+#     ("New York", 1200),
+#     ("Tokyo", 2000),
+#     ("London", 1800),
+# ]
+# print()
 # print("The list of all packages where the destination is in the popular_destinations is \n")
 # popular_destination_list=packages_of_popular_destination(popular_destinations,packages)
 # for i in popular_destination_list:
@@ -432,4 +470,4 @@ print()
 # updated_dict=add_booking(customers,cust_id,my_set)
 # print(f"Updated Customer list is \n{updated_dict}")
 
-print(f"Total revenue generated from all booked packages is {calculate_total_revenue(customers)}")
+# print(f"Total revenue generated from all booked packages is {calculate_total_revenue(customers)}")
