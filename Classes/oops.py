@@ -11,7 +11,6 @@ class Person: # Blueprint
 
         self.name = name
         self.age = age
-        self.print_message()
     
     def print_message(self):
         print(f"{self.name} welcome to our application. Your age is {self.age}")
@@ -26,9 +25,7 @@ p1 = Person("Max", 12) # Object
 p2 = Person("Alice", 15) # Object
 # p2.print_message()
 
-p1.print_message()
+# p1.print_message()
 
-# del p1.age
-del p1
-
-
+# # del p1.age
+# del p1

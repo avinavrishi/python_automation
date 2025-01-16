@@ -37,13 +37,13 @@ Print the final details of the book.'''
 
 #     def update_year(self,year):   
 #         if self.copies_available>0:
-#             self.update_year=year
-#             return self.update_year
+#             self.year=year
+#             return self.year
 #         else:
 #             return "Book is not available" 
 
 #     def final_details(self):
-#         print(f"The name of the book is {self.title} written by{self.author} published in {self.update_year} and available copies of the book are {self.copies_available}")
+#         print(f"The name of the book is {self.title} written by{self.author} published in {self.year} and available copies of the book are {self.copies_available}")
 
 # b1=Book("1984","George Orwell",1949,5)
 # copies_availabe=b1.borrow_book("1984")
@@ -110,26 +110,26 @@ Sell 7 units.
 Change the price to 1200.
 Print the final details of the product.'''
 
-class Product():
-    def __init__(self,product_name, price,quantity):
-        self.product_name=product_name
-        self.price=price
-        self.quantity=quantity
+# class Product():
+#     def __init__(self,product_name, price,quantity):
+#         self.product_name=product_name
+#         self.price=price
+#         self.quantity=quantity
 
-    def restock(self,quantity):
-        self.quantity=self.quantity+quantity
+#     def restock(self,quantity):
+#         self.quantity=self.quantity+quantity
     
-    def sell(self,quantity):
-        self.quantity=self.quantity-quantity
+#     def sell(self,quantity):
+#         self.quantity=self.quantity-quantity
 
-    def change_price(self,New_price):
-        self.price=New_price
+#     def change_price(self,New_price):
+#         self.price=New_price
 
-    def final_details(self):
-        print(f"The name of the product is {self.product_name} of price {self.price} and the total pieces are {self.quantity}")    
+#     def final_details(self):
+#         print(f"The name of the product is {self.product_name} of price {self.price} and the total pieces are {self.quantity}")    
 
-p1=Product("Laptop",1000,10)
-p1.restock(5)
-p1.sell(7)
-p1.change_price(1200)
-p1.final_details()
+# p1=Product("Laptop",1000,10)
+# p1.restock(5)
+# p1.sell(7)
+# p1.change_price(1200)
+# p1.final_details()
