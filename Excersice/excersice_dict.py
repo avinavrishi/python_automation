@@ -354,7 +354,8 @@ Write a function that:
 - If the customer does not exist, raise a ValueError.
 
 3. Find Customers by Preference
-Write a function that takes a preference (e.g., "shopping") as input and returns a set of customer names who have that preference.
+Write a function that takes a preference (e.g., "shopping") as input and returns a set of 
+customer names who have that preference.
 
 4. Calculate Total Revenue
 Write a function that calculates and returns the total revenue generated from all booked packages.
@@ -363,3 +364,72 @@ Write a function that calculates and returns the total revenue generated from al
 Write a function that:
 - Returns the name of the customer who has booked the most packages.
 - If there's a tie, return all names in a set.'''
+
+
+def packages_of_popular_destination(popular_destination,package):
+    my_list=[]
+    for i in popular_destination:
+        for j in package:
+            if i==j[0]:
+                my_list.append(j)
+    return my_list
+
+def add_booking(customers,cust_id,dest_set):
+    for i,value in customers.items():
+        if i==cust_id:
+            value.update({"booked_packages":(dest_set)})
+        else:
+            return "Not a valid customer"    
+    return customers
+
+def calculate_total_revenue(customers):
+    total_rev=0
+    for i,value in customers.items():
+        for j in value["booked_packages"]:
+            total_rev=total_rev+j[1]
+    return total_rev        
+
+
+customers = {
+    "C001": {
+        "name": "Alice",
+        "booked_packages": [("Paris", 1500), ("London", 1800)],
+        "preferences": {"sightseeing", "shopping"}
+    },
+    "C002": {
+        "name": "Bob",
+        "booked_packages": [("Tokyo", 2000)],
+        "preferences": {"adventure", "nature"}
+    },
+    "C003": {
+        "name": "Charlie",
+        "booked_packages": [],
+        "preferences": {"shopping", "luxury"}
+    }
+}
+
+popular_destinations = {"Paris", "New York", "Tokyo"}
+
+packages = [
+    ("Paris", 1500),
+    ("New York", 1200),
+    ("Tokyo", 2000),
+    ("London", 1800),
+]
+print()
+# print("The list of all packages where the destination is in the popular_destinations is \n")
+# popular_destination_list=packages_of_popular_destination(popular_destinations,packages)
+# for i in popular_destination_list:
+#     print(i)
+
+# my_set=set()
+# cust_id=input("Enter Customer ID : ")
+# destination=input("Enter destination : ")
+# cost=input("Enter cost of the package : ")
+# for i in packages:
+#   if i[0]==destination:
+#     my_set.add(i)
+# updated_dict=add_booking(customers,cust_id,my_set)
+# print(f"Updated Customer list is \n{updated_dict}")
+
+print(f"Total revenue generated from all booked packages is {calculate_total_revenue(customers)}")
