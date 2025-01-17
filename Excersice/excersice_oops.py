@@ -153,17 +153,17 @@ Constraints:
 Ensure total_students_enrolled is updated whenever a new student is created.
 Prevent duplicate course enrollments for the same student.'''
 
-class University():
-#     max_courses_per_student={"Science":20,"Commerce":25,"Art":30,"Dairy Science":15,"ITI":40}
-    max_courses_per_student=[] 
-    total_students_enrolled=[]
+# class University():
+# #     max_courses_per_student={"Science":20,"Commerce":25,"Art":30,"Dairy Science":15,"ITI":40}
+#     max_courses_per_student=[] 
+#     total_students_enrolled=[]
     
-    def __init__(self,student_name,student_id,enrolled_courses):
-        self.student_name
-        self.student_id
-        self.enrolled_courses=[] 
+#     def __init__(self,student_name,student_id,enrolled_courses):
+#         self.student_name
+#         self.student_id
+#         self.enrolled_courses=[] 
     
-    def enroll_student_course(self,student_name,enrolled_courses):
+#     def enroll_student_course(self,student_name,enrolled_courses):
         
         
 
@@ -178,8 +178,10 @@ Create a class ShoppingCart that simulates a shopping cart system for an e-comme
 The class has:
 
 A class variable discount_rate representing a global discount applied to all carts (default 0%).
+
 Instance attributes for cart_id (unique), items (dictionary with item name as the key and a 
 tuple of price and quantity as the value), and total.
+
 Tasks:
 
 Create a method to add an item to the cart. If the item already exists, update its quantity.
@@ -199,13 +201,76 @@ Ensure discount_rate applies uniformly to all carts.
 Handle edge cases like removing an item not in the cart or setting a negative discount rate.'''
 
 class ShoppingCart():
-    discount_rate=0
+    discount_rate=0 # Global variable 
+    all_carts = [] # Global list
 
-    def __init__(self,cart_id,items,total):
+    def __init__(self,cart_id):
         self.cart_id=cart_id
-        self.items=items
-        self.total=total
+        self.items={}
+        self.total=0
+        ShoppingCart.all_carts.append(self)
     
-    def add_item(self,):
+    def add_item(self,item_name, price, quantity):
+        if item_name in self.items:
+            current_price , current_quantity = self.items[item_name]
+            self.items[item_name] = (price, current_quantity+quantity)
+        else:
+            self.items[item_name] = (price, quantity)
+        
+        print(f"Item {item_name} has been added.")
 
-s1=ShoppingCart(10,{"Body Soap":(20,5), "Shampoo":(150,2),"Toothpaste":(45,2)},490)
+    def remove_item(self, item_name):
+        if item_name in self.items:
+            del self.items[item_name]
+            print("Item has been deleted.")
+        else:
+            print("Item not found.")
+
+    def calculate_total_price(self):
+        self.total = sum(price * quantity for price, quantity in self.items.values())
+        discounted_total = self.total * (1 - ShoppingCart.discount_rate/100)
+        return round(discounted_total, 2)
+
+    @classmethod # decorator
+    def update_discount_rate(cls, new_rate):
+        if new_rate < 0:
+            print("New rate can not be negative")
+        else:
+            cls.discount_rate= new_rate
+            print("Global rate updated")
+
+    @classmethod
+    def generate_summary(cls):
+        summary = []
+
+        for cart in cls.all_carts:
+            cart_total = cart.calculate_total_price()
+            summary.append({
+                'cart_id': cart.cart_id,
+                'total': cart_total,
+                'items': cart.items
+            })
+
+        return summary
+
+
+cart1 = ShoppingCart("Cart001")
+cart2 = ShoppingCart("Cart002")
+
+cart1.add_item("Body Soap", 20, 5)
+
+cart1.add_item("Shampoo", 150, 2)
+
+cart2.add_item("Toothpaste", 45, 2)
+
+ShoppingCart.update_discount_rate(10)
+
+print(cart1.calculate_total_price())
+print(cart2.calculate_total_price())
+
+summary = ShoppingCart.generate_summary()
+print(summary)
+
+ShoppingCart.update_discount_rate(-5)
+
+# s1=ShoppingCart(10,{"Body Soap":(20,5), "Shampoo":(150,2),"Toothpaste":(45,2)},490)
