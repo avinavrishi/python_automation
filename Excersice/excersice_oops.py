@@ -273,15 +273,4 @@ print(summary)
 
 ShoppingCart.update_discount_rate(-5)
 
-
-
-
-
-
-
-
-    
-
-
-
 # s1=ShoppingCart(10,{"Body Soap":(20,5), "Shampoo":(150,2),"Toothpaste":(45,2)},490)
