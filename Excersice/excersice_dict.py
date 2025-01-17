@@ -1,3 +1,4 @@
+
 '''1.1. Bookstore Inventory
 A bookstore keeps track of its inventory using a dictionary, where the keys are book titles 
 and the values are the number of copies available:
@@ -471,3 +472,49 @@ Write a function that:
 # print(f"Updated Customer list is \n{updated_dict}")
 
 # print(f"Total revenue generated from all booked packages is {calculate_total_revenue(customers)}")
+
+
+def convert_to_int(equation):
+   int_equation=0
+   equation_list = equation.split()
+   print(equation_list)
+   for num in equation_list:
+      print(num.isdigit())
+      if num.isdigit():
+         int_equation=int(num)
+   print(int_equation)
+
+def final_calc(a,b,c,d,e):
+   first=a*(b*10+c)
+   second=(d*10)+e
+#    print(first)
+#    print(second)
+   if first==second:
+      return first,second
+   else:
+      return "Not Correct"
+      swap(b,e) 
+   
+      
+def swap(x,y):
+   temp=x
+   x=y
+   y=temp
+   
+
+equation=input("Enter your equation: ")
+# int_equation1=convert_to_int(equation)
+a=int(equation[0])
+b=int(equation[2])
+c=int(equation[3])
+d=int(equation[5])
+e=int(equation[6])
+temp=b
+b=d
+d=temp
+first,second=final_calc(a,b,c,d,e)
+print(first,second)
+
+
+
+
