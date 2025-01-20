@@ -15,8 +15,6 @@
 #         super().__init__(first_name, last_name)
 
 
-
-
 # s1 = Student("Alice", "Cooper")
 # s1.printname()
 
@@ -144,10 +142,43 @@ class Child(Father, Mother, Sister):
 
 c1 = Child("Max", "Esha", "john", "Meera")
 
+print("================================")
+
+
+# Heirarichal Inheritance and Hybrid Inheritance
+
+class SeperateChild:
+    def feature_separate(self):
+        print("separate child")
+
+class NewParent:
+    def feature_parent(self):
+        print("This is Parent class")
+
+class Child1(NewParent):
+    def feature_child(self):
+        print("This is Child one")
+
+class Child2(NewParent):
+    def feature_child2(self):
+        print("This is Child 2")
+
+class Child1Son(Child1):
+    def feature_child1_son(self):
+        print("Child 1 son")
+
+class MutipleChild(SeperateChild, Child2):
+    def mutliple_feature(self):
+        print("Multiple feature child")
 
 
 
+ch1 = Child1Son()
+ch1.feature_child1_son()
 
+m1 = MutipleChild()
+m1.feature_child2()
+m1.feature_separate()
 
 
 
