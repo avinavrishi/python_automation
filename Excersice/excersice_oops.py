@@ -154,23 +154,74 @@ Ensure total_students_enrolled is updated whenever a new student is created.
 Prevent duplicate course enrollments for the same student.'''
 
 # class University():
-# #     max_courses_per_student={"Science":20,"Commerce":25,"Art":30,"Dairy Science":15,"ITI":40}
-#     max_courses_per_student=[] 
-#     total_students_enrolled=[]
+#     max_courses_per_student=["Science","Commerce","Art","Dairy Science","ITI"]
+#     total_students_enrolled=0
+#     all_students=[]
     
-#     def __init__(self,student_name,student_id,enrolled_courses):
-#         self.student_name
-#         self.student_id
+#     def __init__(self,student_id):
+#         # self.student_name
+#         self.student_id=student_id
+#         self.students={}
 #         self.enrolled_courses=[] 
+#         University.all_students.append(self)
     
-#     def enroll_student_course(self,student_name,enrolled_courses):
-        
-        
+#     def enroll_student(self,student_name,enrolled_courses):
+
+#         if len(self.students.values())>len(self.max_courses_per_student):
+#             print("Exceed the cources limit")
+#         else:    
+#           self.students[student_name]=(enrolled_courses)
+#           print("New student is added!!!")
+#         #   print(self.students.values())
+#         #   print(len(self.students.values()))
+
+#     def drop_course_by_its_name(self,course_name):
+#         for i in self.max_courses_per_student:
+#             if i==course_name:
+#                 self.max_courses_per_student.remove(i)
+#         print(self.max_courses_per_student)        
+
+#     def report_of_all_student(self):
+#         summary = []
+#         for i in self.all_students:
+#             summary.append({
+#                 'student_id': i.student_id,
+#                 'Student': i.students,
+#             })
+#         print(f"Total Students are : {len(summary)}")
+#         return summary
+
+#     @classmethod
+#     def change_max_courses_per_student_limit(self,ans,course_name):
+#         if ans=="Add":
+#             self.max_courses_per_student.append(course_name)
+#         else:
+#             self.max_courses_per_student.remove(course_name)
+#         print(self.max_courses_per_student)
+
+    
+            
+
+# u1=University("001")
+# u1.enroll_student("Max",("Math","Physics","Chemistry"))
+# # u1.drop_course_by_its_name("ITI")
+
+# u2=University("002")
+# u2.enroll_student("Ron",("Math","ITI","Commerce"))
+
+# u3=University("003")
+# u3.enroll_student("Alia",("Physics","ITI","Art"))
+
+# # ans=input("Do you want to add or remove course : ")
+# # new_course=input("Which course do you want to add/remove : ")
+# # University.change_max_courses_per_student_limit(ans,new_course)
+
+# report=u1.report_of_all_student()
+# print(report)
+ 
 
 
 
-
-# u1=University(student_name,student_id,enrolled_courses)
 
 
 '''Online Shopping Cart System
@@ -200,77 +251,77 @@ Constraints:
 Ensure discount_rate applies uniformly to all carts.
 Handle edge cases like removing an item not in the cart or setting a negative discount rate.'''
 
-class ShoppingCart():
-    discount_rate=0 # Global variable 
-    all_carts = [] # Global list
+# class ShoppingCart():
+#     discount_rate=0 # Global variable 
+#     all_carts = [] # Global list
 
-    def __init__(self,cart_id):
-        self.cart_id=cart_id
-        self.items={}
-        self.total=0
-        ShoppingCart.all_carts.append(self)
+#     def __init__(self,cart_id):
+#         self.cart_id=cart_id
+#         self.items={}
+#         self.total=0
+#         ShoppingCart.all_carts.append(self)
     
-    def add_item(self,item_name, price, quantity):
-        if item_name in self.items:
-            current_price , current_quantity = self.items[item_name]
-            self.items[item_name] = (price, current_quantity+quantity)
-        else:
-            self.items[item_name] = (price, quantity)
+#     def add_item(self,item_name, price, quantity):
+#         if item_name in self.items:
+#             current_price , current_quantity = self.items[item_name]
+#             self.items[item_name] = (price, current_quantity+quantity)
+#         else:
+#             self.items[item_name] = (price, quantity)
         
-        print(f"Item {item_name} has been added.")
+#         print(f"Item {item_name} has been added.")
 
-    def remove_item(self, item_name):
-        if item_name in self.items:
-            del self.items[item_name]
-            print("Item has been deleted.")
-        else:
-            print("Item not found.")
+#     def remove_item(self, item_name):
+#         if item_name in self.items:
+#             del self.items[item_name]
+#             print("Item has been deleted.")
+#         else:
+#             print("Item not found.")
 
-    def calculate_total_price(self):
-        self.total = sum(price * quantity for price, quantity in self.items.values())
-        discounted_total = self.total * (1 - ShoppingCart.discount_rate/100)
-        return round(discounted_total, 2)
+#     def calculate_total_price(self):
+#         self.total = sum(price * quantity for price, quantity in self.items.values())
+#         discounted_total = self.total * (1 - ShoppingCart.discount_rate/100)
+#         return round(discounted_total, 2)
 
-    @classmethod # decorator
-    def update_discount_rate(cls, new_rate):
-        if new_rate < 0:
-            print("New rate can not be negative")
-        else:
-            cls.discount_rate= new_rate
-            print("Global rate updated")
+#     @classmethod # decorator
+#     def update_discount_rate(cls, new_rate):
+#         if new_rate < 0:
+#             print("New rate can not be negative")
+#         else:
+#             cls.discount_rate= new_rate
+#             print("Global rate updated")
 
-    @classmethod
-    def generate_summary(cls):
-        summary = []
+#     @classmethod
+#     def generate_summary(cls):
+#         summary = []
 
-        for cart in cls.all_carts:
-            cart_total = cart.calculate_total_price()
-            summary.append({
-                'cart_id': cart.cart_id,
-                'total': cart_total,
-                'items': cart.items
-            })
+#         for cart in cls.all_carts:
+#             cart_total = cart.calculate_total_price()
+#             summary.append({
+#                 'cart_id': cart.cart_id,
+#                 'total': cart_total,
+#                 'items': cart.items
+#             })
 
-        return summary
+#         return summary
 
 
-cart1 = ShoppingCart("Cart001")
-cart2 = ShoppingCart("Cart002")
+# cart1 = ShoppingCart("Cart001")
+# cart2 = ShoppingCart("Cart002")
 
-cart1.add_item("Body Soap", 20, 5)
+# cart1.add_item("Body Soap", 20, 5)
 
-cart1.add_item("Shampoo", 150, 2)
+# cart1.add_item("Shampoo", 150, 2)
 
-cart2.add_item("Toothpaste", 45, 2)
+# cart2.add_item("Toothpaste", 45, 2)
 
-ShoppingCart.update_discount_rate(10)
+# ShoppingCart.update_discount_rate(10)
 
-print(cart1.calculate_total_price())
-print(cart2.calculate_total_price())
+# print(cart1.calculate_total_price())
+# print(cart2.calculate_total_price())
 
-summary = ShoppingCart.generate_summary()
-print(summary)
+# summary = ShoppingCart.generate_summary()
+# print(summary)
 
-ShoppingCart.update_discount_rate(-5)
+# ShoppingCart.update_discount_rate(-5)
 
-# s1=ShoppingCart(10,{"Body Soap":(20,5), "Shampoo":(150,2),"Toothpaste":(45,2)},490)
+# # s1=ShoppingCart(10,{"Body Soap":(20,5), "Shampoo":(150,2),"Toothpaste":(45,2)},490)
