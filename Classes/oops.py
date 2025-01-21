@@ -1,5 +1,21 @@
 # Topic Object oriented programming
 
+# 1 - Classes and object
+# 2 - Class Attributes and method/ Instance attribute
+# 3 - Constructor and Destructor
+# 4 - Inheritance and Access Specifier
+# 5 - Operator overriding and Operator Overloading
+# 6 - Polymorphism
+# 7 - Encapsulation
+# 8 - Abstraction
+# 9 - Static Method
+# 10 - Property and Getter/Setter
+# 11 - Mixins
+# 12 - Magic (Dunder) Methods
+# 13 - Namespaces and scope
+# 14 - MetaClasses
+# 15 - Object oriented Design - SOLID property
+
 # Syntax
 class Person: # Blueprint
     name = "Xyz"
