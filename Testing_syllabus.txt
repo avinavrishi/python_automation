@@ -1,0 +1,16 @@
+STLC - Software testing life cycle
+SDLC - Software development life cycle - agile - beta version ---> feedback, devops, waterfall model
+Testing methodologies - black box testing, white box model, regression testing
+
+## Pytest Framework
+## Selenium for web automtion
+## API testing
+## - Jenkins or Github lab action
+
+STLC:
+1 - Requirement Analysis - to gather the data for the testing purpose like endpoints, payload, output data
+2 - Test Planning - 
+3 - Test Case development
+4 - test environment setup
+5 - Test Execution - Defect logging
+6 - Test Closure
