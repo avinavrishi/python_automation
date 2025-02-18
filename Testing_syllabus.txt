@@ -14,3 +14,32 @@ STLC:
 4 - test environment setup
 5 - Test Execution - Defect logging
 6 - Test Closure
+
+# Software Requirement (Synopsis)
+
+1- Description of features and functionalities of the target system.
+2- Description of the system what do.
+3- Requirement Engineering (RE) is refers to the process of defining, documenting and maintaining requirements.
+
+# It is a four step process
+1 - Feasibility study
+2 - Requirement Gathering/ Elicitation
+3 - Software Requirement Specification (SRS)
+4 - Software Requirement Validation 
+5 - DFD, ER diagram
+
+Tools Support for RE
+1 - Observation report (user observation)
+2 - Questionnaire (interviews, surveys and polls)
+3 - Use Cases
+4 - User Stories
+5 - Requirement Workshop
+6 - Mind Mapping    
+7 - Role Playing - Trial and error
+8 - Prototyping
+
+# Functional and Non Functional requirements:
+
+Functional - Working
+Non Functional - Security, storage, Configuration(keys and password, gitignore), Performance, Cost, Interoperability
+                 Disaster Recovery(Exceptional Handling), Accessibilty
