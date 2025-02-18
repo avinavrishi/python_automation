@@ -49,136 +49,136 @@ an1 = Animal("Max")
 print(an1.speak())
 
 
-print("==========================")
+# print("==========================")
 
-# Using super keyword
-# Single Inheritance - inherits from one one parent class
-class Employee:
-    def __init__(self, name, salary):
-        self.name = name
-        self.salary = salary
+# # Using super keyword
+# # Single Inheritance - inherits from one one parent class
+# class Employee:
+#     def __init__(self, name, salary):
+#         self.name = name
+#         self.salary = salary
     
-    def print_info(self):
-        return f"Employee name is {self.name} and salary is {self.salary}."
+#     def print_info(self):
+#         return f"Employee name is {self.name} and salary is {self.salary}."
 
-class Manager(Employee):
-    def __init__(self, name, salary, department):
-        super().__init__(name, salary)
-        self.department = department
-
-
-m1 = Manager("Akira", 50000, "IT")
-print(m1.print_info())
-print(m1.department)
-
-print("==========================")
-
-# Multilevel inheritance - A chain of inheritance
-
-class Grandfather:
-    def __init__(self, grandfather_name):
-        self.grandfather_name = grandfather_name
-        print("Constructor grandfather")
-
-    def feature_grandfather(self):
-        print("Feature from grandfather")
-
-class Parent(Grandfather):
-    def __init__(self, grandfather_name, parent_name):
-        super().__init__(grandfather_name)
-        self.parent_name = parent_name
-
-        print("Constructor parent")
+# class Manager(Employee):
+#     def __init__(self, name, salary, department):
+#         super().__init__(name, salary)
+#         self.department = department
 
 
-    def feature_parent(self):
-        print("Feature from Parent")
+# m1 = Manager("Akira", 50000, "IT")
+# print(m1.print_info())
+# print(m1.department)
 
-class Child(Parent):
-    def __init__(self, grandfather_name, parent_name, child_name):
-        super().__init__(grandfather_name, parent_name )
-        self.child_name = child_name
+# print("==========================")
 
-        print("Constructor child")
+# # Multilevel inheritance - A chain of inheritance
 
-    def feature_child(self):
-        print("Feature from Child")
+# class Grandfather:
+#     def __init__(self, grandfather_name):
+#         self.grandfather_name = grandfather_name
+#         print("Constructor grandfather")
 
+#     def feature_grandfather(self):
+#         print("Feature from grandfather")
 
-c1 = Child("John henry", "Max", "Bruce")
-print(c1.child_name)
+# class Parent(Grandfather):
+#     def __init__(self, grandfather_name, parent_name):
+#         super().__init__(grandfather_name)
+#         self.parent_name = parent_name
 
-print("===================")
-
-# Mutiple Inheritance
-
-class Father:
-    def __init__(self, father_name):
-        self.father_name = father_name
-        print("Father constructor")
+#         print("Constructor parent")
 
 
-class Mother:
-    def __init__(self, mother_name):
-        self.mother_name = mother_name
-        print("Mother constructor")
+#     def feature_parent(self):
+#         print("Feature from Parent")
 
-class Sister:
-    def __init__(self, sister_name):
-        self.sister_name = sister_name
-        print("Sister constructor")
+# class Child(Parent):
+#     def __init__(self, grandfather_name, parent_name, child_name):
+#         super().__init__(grandfather_name, parent_name )
+#         self.child_name = child_name
 
-# While we have mutliple inheritance then first parameter is the parent which we can call using super
-class Child(Father, Mother, Sister):
-    def __init__(self, father_name, mother_name, sister_name, child_name):
-        super().__init__(father_name)
-        Mother.__init__(self, mother_name)
-        Sister.__init__(self, sister_name )
+#         print("Constructor child")
 
-        self.child_name = child_name
-        print("Child Constructor")
-        print(self.father_name, self.mother_name, self.sister_name)
+#     def feature_child(self):
+#         print("Feature from Child")
 
 
-c1 = Child("Max", "Esha", "john", "Meera")
+# c1 = Child("John henry", "Max", "Bruce")
+# print(c1.child_name)
 
-print("================================")
+# print("===================")
 
+# # Mutiple Inheritance
 
-# Heirarichal Inheritance and Hybrid Inheritance
-
-class SeperateChild:
-    def feature_separate(self):
-        print("separate child")
-
-class NewParent:
-    def feature_parent(self):
-        print("This is Parent class")
-
-class Child1(NewParent):
-    def feature_child(self):
-        print("This is Child one")
-
-class Child2(NewParent):
-    def feature_child2(self):
-        print("This is Child 2")
-
-class Child1Son(Child1):
-    def feature_child1_son(self):
-        print("Child 1 son")
-
-class MutipleChild(SeperateChild, Child2):
-    def mutliple_feature(self):
-        print("Multiple feature child")
+# class Father:
+#     def __init__(self, father_name):
+#         self.father_name = father_name
+#         print("Father constructor")
 
 
+# class Mother:
+#     def __init__(self, mother_name):
+#         self.mother_name = mother_name
+#         print("Mother constructor")
 
-ch1 = Child1Son()
-ch1.feature_child1_son()
+# class Sister:
+#     def __init__(self, sister_name):
+#         self.sister_name = sister_name
+#         print("Sister constructor")
 
-m1 = MutipleChild()
-m1.feature_child2()
-m1.feature_separate()
+# # While we have mutliple inheritance then first parameter is the parent which we can call using super
+# class Child(Father, Mother, Sister):
+#     def __init__(self, father_name, mother_name, sister_name, child_name):
+#         super().__init__(father_name)
+#         Mother.__init__(self, mother_name)
+#         Sister.__init__(self, sister_name )
+
+#         self.child_name = child_name
+#         print("Child Constructor")
+#         print(self.father_name, self.mother_name, self.sister_name)
+
+
+# c1 = Child("Max", "Esha", "john", "Meera")
+
+# print("================================")
+
+
+# # Heirarichal Inheritance and Hybrid Inheritance
+
+# class SeperateChild:
+#     def feature_separate(self):
+#         print("separate child")
+
+# class NewParent:
+#     def feature_parent(self):
+#         print("This is Parent class")
+
+# class Child1(NewParent):
+#     def feature_child(self):
+#         print("This is Child one")
+
+# class Child2(NewParent):
+#     def feature_child2(self):
+#         print("This is Child 2")
+
+# class Child1Son(Child1):
+#     def feature_child1_son(self):
+#         print("Child 1 son")
+
+# class MutipleChild(SeperateChild, Child2):
+#     def mutliple_feature(self):
+#         print("Multiple feature child")
+
+
+
+# ch1 = Child1Son()
+# ch1.feature_child1_son()
+
+# m1 = MutipleChild()
+# m1.feature_child2()
+# m1.feature_separate()
 
 
 
