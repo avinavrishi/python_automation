@@ -43,3 +43,32 @@ Tools Support for RE
 Functional - Working
 Non Functional - Security, storage, Configuration(keys and password, gitignore), Performance, Cost, Interoperability
                  Disaster Recovery(Exceptional Handling), Accessibilty
+
+
+
+Smoke and Sanity testing:
+
+Smoke testing:
+1 - Verify the critical functionalities
+2 - Intial build 1, 2, 3 working fine?
+3 - Main purpose of the smoke testing is to reject a software application with defects so that QA team
+    does not waste time testing broken software application.
+4 - Smoke testing is done by both developers or tester.
+5 - Goal to verify stability.
+6 - Smoke testing is a subset of acceptance testing.
+7 - Smoke testing is documented or scripted.
+8 - Smoke testing verifies the entire system from end to end 
+9 - It is like general Health check up.
+
+Sanity Testing
+1 - Verify new functionality
+2 - After stable build, bugfix? new feature?
+3 - Sanity testing is done by tester.
+4 - Sanity testing verifies only a particular component.
+5 - Sanity testing is a subset of regression testing.
+6 - Sanity testing is a specialized health checkup.
+
+
+
+pip freeze > requirements.txt
+pip install -r requirements.txt
